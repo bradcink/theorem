@@ -125,8 +125,7 @@ module.exports = (grunt) ->
         ext: '.js'
 
     start:
-      dev:
-        script: "app/app.coffee"
+      script: "app/app.coffee"
 
     # nodemon:
     #   dev:
@@ -174,9 +173,9 @@ module.exports = (grunt) ->
 
   grunt.loadNpmTasks "grunt-angular-templates"
   grunt.loadNpmTasks "grunt-notify"
-  grunt.loadNpmTasks "grunt-nodemon"
-  grunt.loadNpmTasks "grunt-concurrent"
-  grunt.loadNpmTasks "grunt-env"
+  # grunt.loadNpmTasks "grunt-nodemon"
+  # grunt.loadNpmTasks "grunt-concurrent"
+  # grunt.loadNpmTasks "grunt-env"
 
   # Making grunt default to force in order not to break the project.
   # grunt.option "force", true
@@ -194,7 +193,6 @@ module.exports = (grunt) ->
     "coffee:client"
     "jade:client"
     "less:client"
-    "concat:parallel"
   ]
 
   return

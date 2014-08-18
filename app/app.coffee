@@ -8,9 +8,10 @@ app = express.createServer()
 app.configure(() ->
   app.set('views', __dirname + '/views')
   app.set('view engine', 'jade')
-  app.set('view options', { ayout: false})
+  app.set('view options', {layout: false})
   app.use express.bodyParser()
   app.use express.methodOverride()
+  app.use express.logger('short')
   app.use express.static(__dirname + '/public')
   app.use app.router
 )
@@ -34,7 +35,7 @@ coreRoutes(app)
 # Server
 app.listen(3000, () ->
   console.log "Express server listening on port %d in %s mode",
-    app.address().port, app.settings.env)
+    app.address().port, app.settings.env
 )
 
 module.exports = app
