@@ -1,0 +1,47 @@
+@import 'constants';
+
+body {
+  margin: 0px;
+  padding: 0px;
+}
+
+#container {
+  position: absolute;
+  background: @background-light;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+}
+
+#splash {
+  @width: 280px;
+  @height: 500px;
+  @border: 4px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background: @background;
+  width: @width;
+  height: @height;
+  border-radius: 18px;
+  border: @border solid #CCC;
+  margin: -@height/2-@border/2 0px 0px -@width/2-@border/2;
+  box-shadow: @shadow;
+
+  .title {
+    text-align: center;
+    margin: 100px 0px 100px 0px;
+    font-family: Arial, Helvetica, Sans-Serif;
+    font-size: 60px;
+    color: #FFF;
+    font-weight: bold;
+  }
+
+  .message {
+    text-align: center;
+    font-family: @helvetica-light;
+    font-size: 18px;
+    color: #333;
+  }
+}

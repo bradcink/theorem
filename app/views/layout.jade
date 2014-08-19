@@ -2,7 +2,6 @@ doctype html
 html(lang='en', xmlns='http://www.w3.org/1999/xhtml')
   head
     title Props
-    //- link(rel="stylesheet", href="/css/layout.css")
 
     meta(charset='utf-8')
     base(href="/")
@@ -10,6 +9,8 @@ html(lang='en', xmlns='http://www.w3.org/1999/xhtml')
     meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
     meta(name='viewport', content='width=device-width,initial-scale=1')
 
+    != css("layout")
+
   body
-    h1 Props
-    block content
+    #container
+      block content

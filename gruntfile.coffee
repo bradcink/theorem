@@ -183,7 +183,7 @@ module.exports = (grunt) ->
   grunt.registerTask "default", [
     # "build"
     # "concurrent"
-    "start"
+    # "start"
   ]
 
   grunt.registerTask "build", [
