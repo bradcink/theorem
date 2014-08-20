@@ -14,9 +14,9 @@ app.configure(() ->
   app.use express.bodyParser()
   app.use express.methodOverride()
   app.use express.logger("short")
+  app.use "/lib", express.static(__dirname + "/../bower_components")
   app.use express.static(__dirname + "/../public")
-  app.use connect
-    paths: config.less_paths
+  app.use connect { paths: config.less_paths }
   app.use app.router
 )
 
