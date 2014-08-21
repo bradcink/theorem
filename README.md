@@ -4,9 +4,13 @@ You will need the following command line tools:
 
 `npm install -g grunt-cli`
 
+`npm install -g bower`
+
 To set up the project, run the following commands:
 
 `npm install`
+
+`bower install`
 
 
 ## Development
