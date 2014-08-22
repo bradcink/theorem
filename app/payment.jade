@@ -1,0 +1,48 @@
+| {% extends 'default.html' %}
+  | {% block content %}
+    div(data-ng-controller='UserController')
+      form.form-horizontal(method='POST', role='form', action='/auth/venmo/payment')
+        fieldset(style='margin-left: 250px;')
+          //
+             <legend >Legend</legend> 
+          h3(style='margin-bottom: 30px; margin-top: 30px;') Pay or Charge
+          .form-group
+            label.col-sm-2.control-label(for='inputPassword') Access Token
+            .col-sm-5
+              input#inputPassword.form-control(type='text', name='access_token', data-ng-model='global.user.access_token', required='required')
+              span.help-block
+                | This can be found on the developer tab of your user page at
+                a(href='https://venmo.com') Venmo
+          .form-group
+            label.col-sm-2.control-label(for='inputEmail') Recipient's Email
+            .col-sm-5
+              input#inputEmail.form-control(type='text', name='email', value='jiho.koo@outlook.com', required='required')
+          .form-group
+            label.col-sm-2.control-label(for='inputEmail') Amount
+            .col-sm-5
+              input#inputEmail.form-control(type='text', name='amount', value='1', required='required')
+              span.help-block To charge, input a negative amount. Decimals go to the hundreths-place.
+          .form-group
+            label.col-sm-2.control-label(for='textArea') Note
+            .col-sm-5
+              textarea#textArea.form-control(name='note', rows='3', placeholder='What are you paying or charging your friend for?', required='required')
+          .form-group
+            label.col-sm-2.control-label Who do you want to share this with?
+            .col-sm-5
+              .radio
+                label
+                  input#optionsRadios1(type='radio', name='audience', checked='', value='public')
+                  | Public
+              .radio
+                label
+                  input#optionsRadios2(type='radio', name='audience', value='friends')
+                  | Friends
+              .radio
+                label
+                  input#optionsRadios2(type='radio', name='audience', value='private')
+                  | Private
+          .form-group
+            .col-sm-5.col-lg-offset-2
+              button.btn.btn-default Cancel
+              button.btn.btn-primary(type='submit') Submit
+    | {% endblock %}

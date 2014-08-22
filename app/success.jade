@@ -1,0 +1,28 @@
+    | {% extends 'default.html' %}
+    | {% block content %}
+    .jumbotron.clearfix(style='width: 90%; height: 80%; margin-right: auto; margin-left: auto;', data-ng-controller='UserController')
+      h1.row.col-md-offset-4 Success!
+      table.table.table-striped.table-hover(style='width: 60%; margin-right: auto; margin-left: auto; margin-top: 70px; margin-bottom: 70px;')
+        thead
+          tr
+            th #
+            th User Details
+            th Transaction Details
+        tbody
+          tr
+            td 1
+            td Fullname: {{venmo_receipt.data.payment.actor.display_name}}
+            td Current Balance: {{venmo_receipt.data.balance}}
+          tr
+            td 2
+            td Username: {{venmo_receipt.data.payment.actor.username}}
+            td Transaction Type: {{venmo_receipt.data.payment.action}} 
+          tr.info
+            td 3
+            td Date Joined: {{venmo_receipt.data.payment.actor.date_joined}}
+            td Amount: {{venmo_receipt.data.payment.amount}}
+          tr.success
+            td 4
+            td Transaction Target: {{venmo_receipt.data.payment.target.user.display_name}}
+            td Transaction Status: {{venmo_receipt.data.payment.status}}
+    | {% endblock %}
