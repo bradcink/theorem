@@ -2,5 +2,7 @@
 .grunt_rebooted
 *.log
 
+tmp
+
 node_modules
 bower_components
