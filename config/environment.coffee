@@ -17,6 +17,7 @@ config.port = if config.production then config.prodPort else config.devPort
 
 
 # paths
+config.root = "#{__dirname}/.."
 config.less_paths = globule.find "#{__dirname}/../client/modules/**/styles"
 config.coffee_paths = globule.find "#{__dirname}/../client/**/"
 config.paths = config.less_paths.concat config.coffee_paths

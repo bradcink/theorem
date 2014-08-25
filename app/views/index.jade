@@ -3,5 +3,6 @@ extends layout
 block content
   #splash
     div.title Props
-    a(href='/auth/venmo').message #{message}
+    div.message
+      a.button(href='/auth/venmo') #{message}
 
