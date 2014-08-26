@@ -6,6 +6,8 @@ You will need the following command line tools:
 
 `npm install -g bower`
 
+`brew install mongodb`
+
 To set up the project, run the following commands:
 
 `npm install`
@@ -15,7 +17,9 @@ To set up the project, run the following commands:
 
 ## Development
 
-Running the local server:
+Running the local server (in separate terminals):
+
+`mongod  # you may need to setup /data/db folder`
 
 `node server.js`
 
