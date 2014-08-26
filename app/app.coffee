@@ -1,12 +1,54 @@
-app = require "../config/express"
+connect = require "connect-assets"
+express = require "express"
+MongoStore = require("connect-mongo")(express)
+passport = require "passport"
+
 coreRoutes = require "./routes/core"
 env = require "../config/environment"
-userRoutes = require "./routes/users"
+User = require "./models/user"
+usersRoutes = require "./routes/users"
+venmo = require "../config/venmo"
 
 
-# Routes
+# Configuration
+console.log __dirname
+app = express.createServer()
+app.configure(() ->
+  app.set("views", __dirname + "/views")
+  app.set("view engine", "jade")
+  app.set("view options", {layout: false})
+  app.use express.bodyParser()
+  app.use express.methodOverride()
+  app.use express.logger("short")
+  app.use "/lib", express.static(__dirname + "/../bower_components")
+  app.use express.static(__dirname + "/../public")
+  app.use connect { paths: env.less_paths }
+  app.use(passport.initialize());
+  app.use(passport.session());
+  app.use app.router
+)
+
+# Development
+app.configure("development", () ->
+  app.use express.errorHandler(
+    dumpExceptions: true
+    showStack: true
+  )
+)
+
+# Production
+app.configure("production", () ->
+  app.use express.errorHandler()
+)
+
+
+# Authentication
+venmo passport
+
+
+# Routing
+usersRoutes app
 coreRoutes app
-userRoutes app
 
 
 # Server
