@@ -1,15 +1,4 @@
-
-###
-Module dependencies.
-###
-crypto = require("crypto")
-mongoose = require("mongoose")
-mongoose.connect "mongodb://localhost/venmo-example"
-db = mongoose.connection
-db.on "error", console.error.bind(console, "connection error:")
-db.once "open", callback = ->
-  console.log "Mongoose connection is open"
-  return
+mongoose = require "mongoose"
 
 
 ###

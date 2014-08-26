@@ -4,6 +4,7 @@ MongoStore = require("connect-mongo")(express)
 passport = require "passport"
 
 coreRoutes = require "./routes/core"
+db = require "../config/db"
 env = require "../config/environment"
 User = require "./models/user"
 usersRoutes = require "./routes/users"
@@ -11,7 +12,6 @@ venmo = require "../config/venmo"
 
 
 # Configuration
-console.log __dirname
 app = express.createServer()
 app.configure(() ->
   app.set("views", __dirname + "/views")
@@ -42,6 +42,10 @@ app.configure("production", () ->
 )
 
 
+# Database
+db.connect()
+
+
 # Authentication
 venmo passport
 
@@ -53,7 +57,7 @@ coreRoutes app
 
 # Server
 app.listen(env.port, () ->
-  console.log "Express server listening on port %d in %s mode",
+  console.log "|- Express server listening on port %d in %s mode.",
     app.address().port, app.settings.env
 )
 
